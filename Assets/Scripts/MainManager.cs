@@ -9,6 +9,7 @@ public class MainManager : MonoBehaviour
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody Ball;
+    public HighScore highScore;
 
     public Text ScoreText;
     public GameObject GameOverText;
@@ -72,5 +73,10 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        if (highScore.highscore < m_Points)
+        {
+            highScore.NewHighscore(m_Points);
+        }
     }
 }
